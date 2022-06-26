@@ -66,6 +66,7 @@
                     <th>Vaccinated</th>
                     <th>Sterilized</th>
                     <th>Arrived to shelter</th>
+                    <th>Photo</th>
                     <th>Actions</th>
                 </tr>
                 <tr th:if="${#lists.isEmpty(animalList)}">
@@ -82,6 +83,7 @@
                 <td th:text="${animal.vaccinated}">Vaccinated</td>
                 <td th:text="${animal.sterilized}">Sterilized</td>
                 <td th:text="${#dates.format(animal.arrivingDate, 'yyyy-MM-dd')}">Arrived to shelter</td>
+                <td><img th:src="${animal.photosImagePath}" width="200" height="200"/></td>
                 <td>EDIT & DELETE</td>
             </tr>
             </tbody>

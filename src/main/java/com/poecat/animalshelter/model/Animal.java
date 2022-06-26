@@ -31,11 +31,14 @@ public class Animal {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivingDate;
 
+    @Column(nullable = true, length = 64)
+    private String photos;
+
 
     public Animal() {}
 
     public Animal(int animalId, String animalName, String type, Gender gender, Date arrivingDate,
-                  String age, String description, boolean vaccinated, boolean sterilized) {
+                  String age, String description, boolean vaccinated, boolean sterilized, String photos) {
         this.animalId = animalId;
         this.animalName = animalName;
         this.type = type;
@@ -45,6 +48,14 @@ public class Animal {
         this.vaccinated = vaccinated;
         this.sterilized = sterilized;
         this.arrivingDate = arrivingDate;
+        this.photos = photos;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null || animalId == null) return null;
+
+        return "/animal-photos/" + animalId + "/" + photos;
     }
 
     public Integer getAnimalId() {
@@ -117,5 +128,13 @@ public class Animal {
 
     public void setArrivingDate(Date arrivingDate) {
         this.arrivingDate = arrivingDate;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 }
