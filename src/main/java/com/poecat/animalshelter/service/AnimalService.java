@@ -21,14 +21,11 @@ public class AnimalService {
         if (animalOptional.isPresent()) {
             return animalOptional.get();
         }
-        throw new AnimalNotFoundException("Couldn't find any commission with ID " + animalId);
+        throw new AnimalNotFoundException("Couldn't find any animal with ID " + animalId);
     }
 
-//    public void delete(Integer id) throws CommissionNotFoundException {
-//        Long count = repository.countById(id);
-//        if(count == null || count == 0) {
-//            throw new CommissionNotFoundException("Couldn't find any commission with ID " + id);
-//        }
-//        repository.deleteById(id);
-//    }
+    public void delete(Integer animalId) throws AnimalNotFoundException {
+
+        animalRepository.deleteById(animalId);
+    }
 }

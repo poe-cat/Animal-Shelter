@@ -70,7 +70,7 @@ public class HomeController {
         try {
             Animal animal = animalService.get(animalId);
             model.addAttribute("animal", animal);
-            model.addAttribute("pageTitle", "Edit commission (ID: " + animalId + ")");
+            model.addAttribute("pageTitle", "Edit animal's data (ID: " + animalId + ")");
 
             return "editAnimal";
 
@@ -79,6 +79,18 @@ public class HomeController {
 
             return "redirect:/";
         }
+    }
+
+    @RequestMapping("/delete/{animalId}")
+    public String deleteCommission(@PathVariable(name = "animalId") Integer animalId, RedirectAttributes re) {
+
+        try {
+            animalService.delete(animalId);
+            re.addFlashAttribute("message", "The data of animal with ID: " + animalId + " has been deleted.");
+        } catch (AnimalNotFoundException e) {
+            re.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/";
     }
 
 
