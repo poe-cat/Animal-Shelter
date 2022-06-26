@@ -84,7 +84,11 @@
                 <td th:text="${animal.sterilized}">Sterilized</td>
                 <td th:text="${#dates.format(animal.arrivingDate, 'yyyy-MM-dd')}">Arrived to shelter</td>
                 <td><img th:src="${animal.photosImagePath}" width="200" height="200"/></td>
-                <td>EDIT & DELETE</td>
+                <td>
+                    <a th:href="@{/edit/{animalId}(animalId=${animal.animalId})}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/delete/{animalId}(animalId=${animal.animalId})}">Delete</a>
+                </td>
             </tr>
             </tbody>
             </table>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<form th:action="@{/animalForm/newAnimal}" th:object="${animal}" method="POST" enctype="multipart/form-data"
+      style="max-width: 500px; margin: 0 auto;">
+    <div class="border border-secondary rounded p-3">
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Id:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{animalId}" readonly="readonly" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Name:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{animalName}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control " id="gender" required th:field="*{gender}">
+                <option hidden value="">Select a gender</option>
+                <option
+                        th:each="gender : ${T(com.poecat.animalshelter.model.Gender).values()}"
+                        th:text="${gender}"
+                        th:value="${gender}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Type:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{type}" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Age:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{age}" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Description:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{description}" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Vaccinated:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{vaccinated}" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Sterilized:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{sterilized}" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Arrived in shelter::</label>
+            <div class="col-sm-8">
+                <input type="date" th:field="*{arrivingDate}" />
+            </div>
+        </div>
+
+        <div>
+            <label>Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary m-2">Save</button>
+            <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
+        </div>
+
+    </div>
+</form>
+</div>
+</body>
+</html>
