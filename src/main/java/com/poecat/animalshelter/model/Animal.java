@@ -15,7 +15,7 @@ public class Animal {
 
     private String animalName;
 
-    private String type;
+    private Type type;
 
     private String age;
 
@@ -37,7 +37,7 @@ public class Animal {
 
     public Animal() {}
 
-    public Animal(int animalId, String animalName, String type, Gender gender, Date arrivingDate,
+    public Animal(int animalId, String animalName, Type type, Gender gender, Date arrivingDate,
                   String age, String description, boolean vaccinated, boolean sterilized, String photos) {
         this.animalId = animalId;
         this.animalName = animalName;
@@ -74,11 +74,11 @@ public class Animal {
         this.animalName = animalName;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

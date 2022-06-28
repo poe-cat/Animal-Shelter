@@ -17,9 +17,8 @@
 <br><br><br><br>
     <div sec:authorize="isAuthenticated()">
         <div class="container">
-            <div class="alert alert-success">
-                <strong>Success!</strong> Authenticated as
-                <strong><span sec:authentication="name"></span></strong>
+            <div th:if="${message}" class="alert alert-success text-center">
+                [[${message}]]
             </div>
 
             <form th:action="@{/animalForm}" method="GET">

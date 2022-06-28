@@ -42,11 +42,16 @@
             </select>
         </div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-4 col-form-label">Type:</label>
-            <div class="col-sm-8">
-                <input type="text" th:field="*{type}" />
-            </div>
+        <div class="form-group">
+            <label for="gender">Type</label>
+            <select class="form-control " id="type" required th:field="*{type}">
+                <option hidden value="">Select type</option>
+                <option
+                        th:each="type : ${T(com.poecat.animalshelter.model.Type).values()}"
+                        th:text="${type}"
+                        th:value="${type}">
+                </option>
+            </select>
         </div>
 
         <div class="mb-3 row">
@@ -87,6 +92,7 @@
         <div>
             <label>Photos: </label>
             <input type="file" name="image" accept="image/png, image/jpeg" />
+            <label th:field="*{photos}" width="200" height="200"></label>
         </div>
 
         <div class="text-center">
