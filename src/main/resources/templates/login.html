@@ -5,62 +5,62 @@
   <title>Animal Shelter Login Page</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
 
-<br><br><br><br><br><br><br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
 
-      <h1>Login</h1>
-      <form th:action="@{/login}" method="post">
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
 
-        <!-- error message -->
-        <div th:if="${param.error}">
-          <div class="alert alert-danger">Invalid username or password.</div>
-        </div>
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Login</h2>
 
-        <!-- logout message -->
-        <div th:if="${param.logout}">
-          <div class="alert alert-info">You have been logged out.</div>
-        </div>
+            <form th:action="@{/login}" method="post">
 
-        <div class="form-group">
-          <label for="username">Email</label>
-          <input type="email" class="form-control" id="username"
-                 name="username" placeholder="Enter your email"
-                 autofocus="autofocus">
-        </div>
+              <div class="form-outline mb-4">
+                <label for="username" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="username" id="username" placeholder="Enter your email" autofocus="autofocus">
+              </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password"
-                 class="form-control" placeholder="Enter your password" />
-        </div>
+              <div class="form-outline mb-4">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+              </div>
 
-        <div class="form-group">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <input type="submit" name="login-submit" id="login-submit"
-                     class="form-control btn btn-primary" value="Log In"/>
-            </div>
+              <input type="submit" name="login-submit" id="login-submit" class="btn btn-primary btn-block mb-4" value="Log in"/>
+
+              <div>
+                <span>Not a member? <a href="/" th:href="@{/registration}">Register here</a></span>
+              </div>
+
+            </form>
           </div>
         </div>
+      </div>
 
-      </form>
-
-      <div class="form-group">
-        <span>New user? <a href="/" th:href="@{/registration}">Register here</a></span>
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://images.unsplash.com/photo-1542578951838-47d40e8b4f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" class="w-100 rounded-4 shadow-4"
+             alt="dog owner"/>
       </div>
     </div>
   </div>
-</div>
+</section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

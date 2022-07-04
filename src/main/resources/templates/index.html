@@ -14,7 +14,6 @@
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
 
-<br><br><br><br>
     <div sec:authorize="isAuthenticated()">
         <div class="container">
             <div th:if="${message}" class="alert alert-success text-center">
@@ -22,11 +21,11 @@
             </div>
 
             <form th:action="@{/animalForm}" method="GET">
-                <button type="submit" class="btn btn-success m-2">Add new Animal</button>
+                <button type="submit" class="btn btn-primary mt-4 mb-3">Add Animal</button>
             </form>
 
-            <table class="table table-striped table-bordered ">
-                <tr>
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
                     <th>ID</th>
                     <th>Name</th>
                     <th>Type</th>
@@ -35,10 +34,10 @@
                     <th>Description</th>
                     <th>Vaccinated</th>
                     <th>Sterilized</th>
-                    <th>Arrived to shelter</th>
+                    <th>Arrived in shelter</th>
                     <th>Photo</th>
                     <th>Actions</th>
-                </tr>
+                </thead>
                 <tr th:if="${#lists.isEmpty(animalList)}">
                     <td class="text-center" colspan="7">No records found. Add some...!</td>
                 </tr>
