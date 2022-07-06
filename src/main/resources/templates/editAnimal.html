@@ -29,27 +29,12 @@
             </div>
 
             <div class="form-group">
-                <label for="gender">Gender:</label>
-                <select class="form-control " id="gender" required th:field="*{gender}">
-                    <option hidden value="">Select a gender</option>
-                    <option
-                            th:each="gender : ${T(com.poecat.animalshelter.model.Gender).values()}"
-                            th:text="${gender}"
-                            th:value="${gender}">
-                    </option>
-                </select>
+                <label>Gender:</label>
+                <input class="form-control" type="text" th:field="*{gender}" />
             </div>
-
             <div class="form-group">
-                <label for="type">Type:</label>
-                <select class="form-control " id="type" required th:field="*{type}">
-                    <option hidden value="">Select type</option>
-                    <option
-                            th:each="type : ${T(com.poecat.animalshelter.model.Type).values()}"
-                            th:text="${type}"
-                            th:value="${type}">
-                    </option>
-                </select>
+                <label>Type:</label>
+                <input class="form-control" type="text" th:field="*{type}" />
             </div>
 
             <div class="form-group">
@@ -63,13 +48,26 @@
             </div>
 
             <div class="form-group">
-                <label>Vaccinated:</label>
-                    <input class="form-control" type="text" th:field="*{vaccinated}" />
+                <label for="vaccinated">Vaccinated:</label>
+                <select class="form-control " id="vaccinated" required th:field="*{vaccinated}">
+                    <option hidden value="">Vaccinated</option>
+                    <option
+                            th:each="vaccinated : ${T(com.poecat.animalshelter.model.Vaccinated).values()}"
+                            th:text="${vaccinated}"
+                            th:value="${vaccinated}">
+                    </option>
+                </select>
             </div>
-
             <div class="form-group">
-                <label>Sterilized:</label>
-                    <input class="form-control" type="text" th:field="*{sterilized}" />
+                <label for="sterilized">Sterilized:</label>
+                <select class="form-control " id="sterilized" required th:field="*{sterilized}">
+                    <option hidden value="">Sterilized</option>
+                    <option
+                            th:each="sterilized : ${T(com.poecat.animalshelter.model.Sterilized).values()}"
+                            th:text="${sterilized}"
+                            th:value="${sterilized}">
+                    </option>
+                </select>
             </div>
 
             <div class="form-group">

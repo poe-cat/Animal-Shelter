@@ -15,18 +15,18 @@ public class Animal {
 
     private String animalName;
 
-    private Type type;
+    private String type;
 
     private String age;
 
-    private Gender gender;
+    private String gender;
 
     @Lob
     private String description;
 
-    private boolean vaccinated;
+    private Vaccinated vaccinated;
 
-    private boolean sterilized;
+    private Sterilized sterilized;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivingDate;
@@ -37,8 +37,8 @@ public class Animal {
 
     public Animal() {}
 
-    public Animal(int animalId, String animalName, Type type, Gender gender, Date arrivingDate,
-                  String age, String description, boolean vaccinated, boolean sterilized, String photos) {
+    public Animal(int animalId, String animalName, String type, String gender, Date arrivingDate,
+                  String age, String description, Vaccinated vaccinated, Sterilized sterilized, String photos) {
         this.animalId = animalId;
         this.animalName = animalName;
         this.type = type;
@@ -74,11 +74,11 @@ public class Animal {
         this.animalName = animalName;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -90,11 +90,11 @@ public class Animal {
         this.age = age;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -106,19 +106,19 @@ public class Animal {
         this.description = description;
     }
 
-    public boolean isVaccinated() {
+    public Vaccinated getVaccinated() {
         return vaccinated;
     }
 
-    public void setVaccinated(boolean vaccinated) {
+    public void setVaccinated(Vaccinated vaccinated) {
         this.vaccinated = vaccinated;
     }
 
-    public boolean isSterilized() {
+    public Sterilized getSterilized() {
         return sterilized;
     }
 
-    public void setSterilized(boolean sterilized) {
+    public void setSterilized(Sterilized sterilized) {
         this.sterilized = sterilized;
     }
 

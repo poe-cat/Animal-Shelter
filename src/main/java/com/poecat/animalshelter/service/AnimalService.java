@@ -6,6 +6,7 @@ import com.poecat.animalshelter.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,9 @@ public class AnimalService {
     public void delete(Integer animalId) throws AnimalNotFoundException {
 
         animalRepository.deleteById(animalId);
+    }
+
+    public List<Animal> search(String keyword) {
+        return animalRepository.search(keyword);
     }
 }

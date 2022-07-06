@@ -26,28 +26,16 @@
                     </div>
                     <div class="form-group">
                         <label for="gender">Gender:</label>
-                        <select class="form-control " id="gender" required th:field="*{gender}">
-                            <option hidden value="">Select gender</option>
-                            <option
-                                    th:each="gender : ${T(com.poecat.animalshelter.model.Gender).values()}"
-                                    th:text="${gender}"
-                                    th:value="${gender}">
-                            </option>
-                        </select>
+                        <input class="form-control" id="gender" placeholder="Gender" required  autocomplete="off"
+                               th:field="*{gender}"
+                               type="text"/>
                     </div>
-
                     <div class="form-group">
                         <label for="type">Type:</label>
-                        <select class="form-control " id="type" required th:field="*{type}">
-                            <option hidden value="">Select type</option>
-                            <option
-                                    th:each="type : ${T(com.poecat.animalshelter.model.Type).values()}"
-                                    th:text="${type}"
-                                    th:value="${type}">
-                            </option>
-                        </select>
+                        <input class="form-control" id="type" placeholder="Type" required  autocomplete="off"
+                               th:field="*{type}"
+                               type="text"/>
                     </div>
-
                     <div class="form-group">
                         <label for="type">Age:</label>
                         <input class="form-control" id="age" placeholder="Age" autocomplete="off"
@@ -63,29 +51,36 @@
                     </div>
                     <div class="form-group">
                         <label for="vaccinated">Vaccinated:</label>
-                        <input class="form-control" id="vaccinated" placeholder="Vaccinated" autocomplete="off"
-                               th:field="*{vaccinated}"
-                               type="text"/>
+                        <select class="form-control" id="vaccinated" required th:field="*{vaccinated}">
+                            <option hidden value="">Vaccinated</option>
+                            <option
+                                    th:each="vaccinated : ${T(com.poecat.animalshelter.model.Vaccinated).values()}"
+                                    th:text="${vaccinated}"
+                                    th:value="${vaccinated}">
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="sterilized">Sterilized:</label>
-                        <input class="form-control" id="sterilized" placeholder="Sterilized" autocomplete="off"
-                               th:field="*{sterilized}"
-                               type="text"/>
+                        <select class="form-control " id="sterilized" required th:field="*{sterilized}">
+                            <option hidden value="">Sterilized</option>
+                            <option
+                                    th:each="sterilized : ${T(com.poecat.animalshelter.model.Sterilized).values()}"
+                                    th:text="${sterilized}"
+                                    th:value="${sterilized}">
+                            </option>
+                        </select>
                     </div>
-
                     <div class="form-group">
                         <label for="arrivingDate">Arrived in shelter:</label>
                         <input class="form-control" id="arrivingDate" placeholder="Arriving date" autocomplete="off"
                                th:field="*{arrivingDate}"
                                type="date"/>
                     </div>
-
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Photos: </label>
                         <input class="form-control" type="file" id="formFile" name="image"  accept="image/png, image/jpeg" />
                     </div>
-
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary m-2">Save</button>

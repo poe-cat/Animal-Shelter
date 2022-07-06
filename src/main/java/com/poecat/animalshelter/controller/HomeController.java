@@ -6,6 +6,7 @@ import com.poecat.animalshelter.model.Animal;
 import com.poecat.animalshelter.repository.AnimalRepository;
 import com.poecat.animalshelter.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -92,7 +93,17 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/search")
+    public String search(@Param("keyword") String keyword, Model model) {
 
+        List<Animal> searchResult = animalService.search(keyword);
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("pageTitle", "Search results for '" + keyword + "'");
+        model.addAttribute("searchResult", searchResult);
+
+        return "search_result";
+    }
 }
 
 

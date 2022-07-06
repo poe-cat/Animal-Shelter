@@ -14,24 +14,23 @@
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
 
-    <div sec:authorize="isAuthenticated()">
-        <div class="container">
+<div sec:authorize="isAuthenticated()">
+    <div class="container">
+
+        <div>
+            <h2>Search results for '[[${keyword}]]'</h2>
+            </br>
+        </div>
 
             <nav class="navbar navbar-expand-sm bg-light">
-                <div class="col-auto">
-                    <div class="collapse navbar-collapse" id="searchNavbar">
-                        <form th:action="@{/search}" method="GET" class="form-inline my-2 my-lg-0">
-                            <input type="search" name="keyword" th:value="${keyword}" size="50"
-                                   class="form-control mr-sm-2" placeholder="keyword" required/>
-                            <input type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0"/>
-                        </form>
-                    </div>
+                <div class="collapse navbar-collapse" id="searchNavbar">
+                    <form th:action="@{/search}" th:value="${keyword}" method="GET" class="form-inline my-2 my-lg-0">
+                        <input type="search" name="keyword" th:value="${keyword}" size="50"
+                               class="form-control mr-sm-2" placeholder="keyword" required/>
+                        <input type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0"/>
+                    </form>
                 </div>
             </nav>
-
-            <form th:action="@{/animalForm}" method="GET">
-                <button type="submit" class="btn btn-primary mt-4 mb-3">Add Animal</button>
-            </form>
 
             <table class="table table-hover table-bordered">
                 <thead class="table-dark">
@@ -47,11 +46,11 @@
                     <th>Photo</th>
                     <th>Actions</th>
                 </thead>
-                <tr th:if="${#lists.isEmpty(animalList)}">
-                    <td class="text-center" colspan="7">No records found. Add some...!</td>
+                <tr th:if="${#lists.isEmpty(searchResult)}">
+                    <td class="text-center" colspan="7">No records found. </td>
                 </tr>
             <tbody>
-            <tr th:each="animal : ${animalList}">
+            <tr th:each="animal : ${searchResult}">
                 <td th:text="${animal.animalId}">#</td>
                 <td th:text="${animal.animalName}">Name</td>
                 <td th:text="${animal.type}">Type</td>

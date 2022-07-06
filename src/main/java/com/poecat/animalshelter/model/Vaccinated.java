@@ -1,7 +1,7 @@
 package com.poecat.animalshelter.model;
 
-public enum Gender {
+public enum Vaccinated {
 
-    MALE,
-    FEMALE
+    YES,
+    NO
 }
