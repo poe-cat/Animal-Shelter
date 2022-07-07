@@ -62,7 +62,7 @@ public class HomeController {
         String uploadDir = "./animal-photos/" + animal.getAnimalId();
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
-        senderService.sendEmail("your.email@gmail.com",
+        senderService.sendEmail("youremail@gmail.com",
                 "Hello, Shelter Family!", "We have a new Friend in our shelter. " +
                         "Please, make sure that " + animal.getAnimalName() + " feels safe.");
 
