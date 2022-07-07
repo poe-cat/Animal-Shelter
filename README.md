@@ -61,5 +61,6 @@ mvn spring-boot:run
 
 ![Zrzut ekranu (59)](https://user-images.githubusercontent.com/84228264/177832226-2745661f-fff7-4072-ba5f-683621f471f8.png)
 
-![Zrzut ekranu (60)](https://user-images.githubusercontent.com/84228264/177832229-af4cd87c-dc56-4737-8a51-a8f4c991a0c7.png)
+![Zrzut ekranu (60)](https://user-images.githubusercontent.com/84228264/177832441-b6ee1c0b-ccdc-4851-b1b8-74f4957c46d3.png)
+
 
