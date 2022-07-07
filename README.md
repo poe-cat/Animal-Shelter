@@ -26,7 +26,7 @@ The project includes the Maven wrapper, so there is no need to install Maven to 
 To use Spring Boot with Spring Data JPA and Hibernate, configure database connection information in the application.properties as follows (remember to modify URL, username and password matching your MySQL database):
 
 ```
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto = update
 spring.datasource.url = jdbc:mysql://localhost:3306/your_database?createDatabaseIfNotExist=true
 spring.datasource.username = root
 spring.datasource.password = password
@@ -35,10 +35,10 @@ spring.datasource.password = password
 Set up application.properties file with configurations required for using Gmail SMTP server. Your Gmail address can be provided as the username. To generate password, you need to enable 2-step verification for your account.
 
 ```
-spring.mail.host=smtp.gmail.com
-spring.mail.port=587
-spring.mail.username=youremail2@gmail.com
-spring.mail.password=yourgeneratedpassword
+spring.mail.host = smtp.gmail.com
+spring.mail.port = 587
+spring.mail.username = youremail2@gmail.com
+spring.mail.password = yourgeneratedpassword
 ```
 
 Note, that if you run application for the first time, new created database is empty. Run app in the browser and register as a new user. 
