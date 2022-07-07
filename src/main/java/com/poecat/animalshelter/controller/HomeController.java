@@ -1,6 +1,7 @@
 package com.poecat.animalshelter.controller;
 
 import com.poecat.animalshelter.FileUploadUtil;
+import com.poecat.animalshelter.email.EmailSenderService;
 import com.poecat.animalshelter.exceptions.AnimalNotFoundException;
 import com.poecat.animalshelter.model.Animal;
 import com.poecat.animalshelter.repository.AnimalRepository;
@@ -24,6 +25,8 @@ public class HomeController {
     private AnimalRepository animalRepository;
     @Autowired
     private AnimalService animalService;
+    @Autowired
+    private EmailSenderService senderService;
 
     @GetMapping("/login")
     public String login() {
@@ -58,6 +61,10 @@ public class HomeController {
 
         String uploadDir = "./animal-photos/" + animal.getAnimalId();
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
+        senderService.sendEmail("your.email@gmail.com",
+                "Hello, Shelter Family!", "We have a new Friend in our shelter. " +
+                        "Please, make sure that " + animal.getAnimalName() + " feels safe.");
 
         return "redirect:/";
     }

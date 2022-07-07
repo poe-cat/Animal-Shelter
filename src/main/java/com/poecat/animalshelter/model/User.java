@@ -2,7 +2,6 @@ package com.poecat.animalshelter.model;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Set;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint
@@ -30,10 +29,6 @@ public class User {
                     referencedColumnName = "id"))
 
     private Collection<Role> roles;
-
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL)
-//    private Set<Symptoms> symptomsSet;
 
 
     public User() {}
@@ -96,13 +91,6 @@ public class User {
         this.roles = roles;
     }
 
-//    public Set<Symptoms> getSymptomsSet() {
-//        return symptomsSet;
-//    }
-//
-//    public void setSymptomsSet(Set<Symptoms> symptomsSet) {
-//        this.symptomsSet = symptomsSet;
-//    }
 
     @Override
     public String toString() {
@@ -112,7 +100,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
-//                ", symptomsSet=" + symptomsSet +
                 '}';
     }
 }
