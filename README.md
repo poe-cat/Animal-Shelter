@@ -9,6 +9,13 @@
 
 ## General info
 
+This is a web application requiring authentication. Authenticated users can read the content and also manipulate the data of animals staying in the shelter. The data is stored in the MySQL database.
+
+So far, the concept assumes that the application is used by shelter employees who can modify animal descriptions, add photos, delete data, etc. When an employee adds a new resident to the shelter, the application automatically sends a message to the specified (hard coded) email address.
+
+To search for records, user can aslo use full-text search. Its goal is to find results that are approximate in meaning and quickly issue them. Thus, the result will be much more useful to the user, as it will be more relevant. Down below, you can check out the screenshot from searching for the 'dog' phrase.
+
+The application will be expanded with further functions, such as browsing by users who are not logged in (potential willing to adopt an animal), adoption forms, e-mail contact via the website.
 
 
 ## Technologies
