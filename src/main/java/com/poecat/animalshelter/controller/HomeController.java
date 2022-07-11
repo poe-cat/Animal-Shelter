@@ -43,7 +43,7 @@ public class HomeController {
     }
 
     @GetMapping("/animalForm")
-    public String bookForm(Model model) {
+    public String animalForm(Model model) {
 
         model.addAttribute("animal", new Animal());
 
@@ -51,7 +51,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/animalForm/newAnimal")
-    public String addNewBook(@ModelAttribute("animal") Animal animal,
+    public String addNewAnimal(@ModelAttribute("animal") Animal animal,
                              @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
@@ -87,7 +87,7 @@ public class HomeController {
     }
 
     @RequestMapping("/delete/{animalId}")
-    public String deleteCommission(@PathVariable(name = "animalId") Integer animalId,
+    public String deleteAnimal(@PathVariable(name = "animalId") Integer animalId,
                                    RedirectAttributes re) {
 
         try {
