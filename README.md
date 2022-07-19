@@ -1,5 +1,7 @@
 # Animal Shelter
 
+![animal-shelter](https://user-images.githubusercontent.com/84228264/179736888-0358ba20-30f4-471a-b340-2717e8e8ddeb.png)
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
