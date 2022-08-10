@@ -1,4 +1,4 @@
-package com.poecat.animalshelter;
+package com.poecat.animalshelter.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HttpRequestTest {
+public class HomeControllerTest {
 
     @LocalServerPort
     private int port;
