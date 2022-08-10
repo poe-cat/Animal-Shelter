@@ -15,6 +15,13 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
+    public AnimalService() {
+    }
+
+    public AnimalService(AnimalRepository animalRepository) {
+        this.animalRepository = animalRepository;
+    }
+
     public Animal get(Integer animalId) throws AnimalNotFoundException {
 
         Optional<Animal> animalOptional = animalRepository.findById(animalId);
