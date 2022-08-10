@@ -22,8 +22,6 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
-    private User user;
-
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
@@ -66,7 +64,5 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
-
-
 }
 
