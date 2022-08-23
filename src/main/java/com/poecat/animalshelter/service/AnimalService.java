@@ -15,11 +15,28 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
+
     public AnimalService() {
     }
 
     public AnimalService(AnimalRepository animalRepository) {
         this.animalRepository = animalRepository;
+    }
+
+    public List<Animal> getAnimals() {
+        return animalRepository.findAll();
+    }
+
+    public void delete(Integer animalId) throws AnimalNotFoundException {
+        animalRepository.deleteById(animalId);
+    }
+
+    public List<Animal> search(String keyword) {
+        return animalRepository.search(keyword);
+    }
+
+    List<String> findByName(String animalName) {
+        return animalRepository.searchByAnimalName(animalName);
     }
 
     public Animal get(Integer animalId) throws AnimalNotFoundException {
@@ -30,14 +47,5 @@ public class AnimalService {
             return animalOptional.get();
         }
         throw new AnimalNotFoundException("Couldn't find any animal with ID " + animalId);
-    }
-
-    public void delete(Integer animalId) throws AnimalNotFoundException {
-
-        animalRepository.deleteById(animalId);
-    }
-
-    public List<Animal> search(String keyword) {
-        return animalRepository.search(keyword);
     }
 }

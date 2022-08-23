@@ -15,4 +15,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
             + "AGAINST (?1)", nativeQuery = true)
     public List<Animal> search(String keyword);
 
+
+    List<String> searchByAnimalName(String animalName);
 }
